@@ -1,0 +1,14 @@
+.bakgcalr {
+    /* background: rgb(226, 202, 241); */
+    background: linear-gradient(90deg, rgb(214, 197, 226) 0%, rgb(255, 253, 253) 50%,
+            rgb(235, 218, 196) 100%);
+}
+
+.text {
+    color: rgb(235, 105, 65);
+}
+
+.topSobi {
+    width: auto;
+    height: 80px;
+}
