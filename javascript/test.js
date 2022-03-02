@@ -8,13 +8,13 @@ const loadItems = () => {
 };
 
 const displayItems = items => {
-  if (items.length == 0) {
+  if (items.length == "") {
     document.getElementById('text-show').style.display = "block";
-    console.log('Please A Valid');
   } else {
+    document.getElementById('text-show').style.display = "none";
     const twentyItems = items.slice(0, 20);
     const searchResults = document.getElementById("search-results");
-
+    searchResults.textContent = '';
     twentyItems.forEach((item) => {
       const div = document.createElement("div");
       div.classList.add("col");
@@ -35,9 +35,9 @@ const displayItems = items => {
       Details
     </button>
       </div>
-    </div>`;
-      searchResults.appendChild(div);
-    });
+    </div>
+      `;  searchResults.appendChild(div);
+      });
 
   }
 
@@ -61,14 +61,13 @@ const displayItemsDetails = (item) => {
   <div class="col-md-4">
       <img src="${item.image}" class="img-fluid " alt="..." />
   </div>
-  <div class="col-md-8 ">
-      <div class=" ">
-      <h1 class="">Main Features</h1>
+  <div class="col-md-7">
+      <div class="card-body">
+      <h1 class="card-title">Main Features</h1>
       <h6><span class="fw-bold">Name:</span> ${item.name}</h6>
       <h6><span class="fw-bold">Model:</span> ${item.slug}</h6>
-      <h6><span class="fw-bold">Released:</span> ${item.releaseDate? item.releaseDate:`<h6>No Release Date Found </h6>`}</h6>
-      <h4 class="fw-bold"> Main Features</h4>
-      
+      <h6><span class="fw-bold">Released:</span> ${item.releaseDate? item.releaseDate:`<h6>No Release Date No Found </h6> `}</h6>
+      <h5 class="fw-bold"> Main Features</h5>
       <h6><span class="fw-bold">Chipset:</span> ${item.mainFeatures.chipSet}</h6>
       <h6><span class="fw-bold">Display Size:</span> ${item.mainFeatures.displaySize}</h6>
       <h6><span class="fw-bold">Memory:</span> ${item.mainFeatures.memory}</h6>
