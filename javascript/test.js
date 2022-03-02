@@ -1,26 +1,31 @@
+const searchingDetail = document.getElementById("search-results");
+const itemDetails = document.getElementById("item-details");
+
 const loadItems = () => {
+  const itemDetails = document.getElementById("item-details");
+  itemDetails.textContent = "";
   const itemText = document.getElementById("searchInput").value;
   const url = `https://openapi.programming-hero.com/api/phones?search=${itemText}`;
   fetch(url)
     .then((res) => res.json())
-
     .then((data) => displaysSystem(data.data));
 };
-
 const displaysSystem = items => {
   if (items.length == "") {
+
     document.getElementById('text-show').style.display = "block";
+    searchingDetail.textContent = '';
   } else {
     document.getElementById('text-show').style.display = "none";
     const toItems = items.slice(0, 20);
-    const searchingDetail = document.getElementById("search-results");
+
     searchingDetail.textContent = '';
     toItems.forEach((item) => {
       const div = document.createElement("div");
       div.classList.add("col");
       div.innerHTML = `
-      <div class="card text-center h-100 p-3">
-      <img src="${item.image}" class="card-img-top w-50 mx-auto h-75" alt="...">
+      <div class="card text-center h-100 p-3 ">
+      <img src="${item.image}" class="card-img-top w-50 mx-auto h-75 " alt="...">
       <div class="card-body">
         <h4 class="card-title text-info">${item.phone_name}</h4>
         <h5 class="card-text"><span class="text-primary fw-bold">Brand:</span> ${item.brand}</h5>
@@ -28,7 +33,7 @@ const displaysSystem = items => {
       </div>
       <div class="">
       <button onclick="loadItemsDetails('${item.slug}')"
-      class="btn w-100 btn-outline-warning rounded-pill"
+      class="btn w-100 btn-warning rounded-pill"
       type="button"
       id="button-addon2"
     >
@@ -36,15 +41,20 @@ const displaysSystem = items => {
     </button>
       </div>
     </div>
-      `;  searchingDetail.appendChild(div);
-      });
+      `;
+      searchingDetail.appendChild(div);
+
+    });
 
   }
 
 };
 
 const loadItemsDetails = (itemId) => {
+  // const searchingDetail = document.getElementById("search-results");
+  // searchingDetail.textContent = '';
   const url = `https://openapi.programming-hero.com/api/phone/${itemId}`;
+
   fetch(url)
     .then((res) => res.json())
     .then((data) => displaysSystemDetails(data.data));
@@ -52,7 +62,6 @@ const loadItemsDetails = (itemId) => {
 
 const displaysSystemDetails = (item) => {
   console.log(item);
-  const itemDetails = document.getElementById("item-details");
   itemDetails.textContent = "";
   const div = document.createElement("div");
   div.classList.add("card");
