@@ -59,7 +59,7 @@ const displayItemsDetails = (item) => {
   div.innerHTML = `
   <div class="row p-3">
   <div class="col-md-4">
-      <img src="${item.image}" class="img-fluid " alt="..." />
+      <img src="${item.image}" class="img-fluid  h-75" alt="..." />
   </div>
   <div class="col-md-7">
       <div class="card-body">
