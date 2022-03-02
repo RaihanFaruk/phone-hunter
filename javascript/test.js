@@ -4,18 +4,18 @@ const loadItems = () => {
   fetch(url)
     .then((res) => res.json())
 
-    .then((data) => displayItems(data.data));
+    .then((data) => displaysSystem(data.data));
 };
 
-const displayItems = items => {
+const displaysSystem = items => {
   if (items.length == "") {
     document.getElementById('text-show').style.display = "block";
   } else {
     document.getElementById('text-show').style.display = "none";
-    const twentyItems = items.slice(0, 20);
-    const searchResults = document.getElementById("search-results");
-    searchResults.textContent = '';
-    twentyItems.forEach((item) => {
+    const toItems = items.slice(0, 20);
+    const searchingDetail = document.getElementById("search-results");
+    searchingDetail.textContent = '';
+    toItems.forEach((item) => {
       const div = document.createElement("div");
       div.classList.add("col");
       div.innerHTML = `
@@ -28,7 +28,7 @@ const displayItems = items => {
       </div>
       <div class="">
       <button onclick="loadItemsDetails('${item.slug}')"
-      class="btn w-100 btn-outline-warning"
+      class="btn w-100 btn-outline-warning rounded-pill"
       type="button"
       id="button-addon2"
     >
@@ -36,7 +36,7 @@ const displayItems = items => {
     </button>
       </div>
     </div>
-      `;  searchResults.appendChild(div);
+      `;  searchingDetail.appendChild(div);
       });
 
   }
@@ -47,10 +47,10 @@ const loadItemsDetails = (itemId) => {
   const url = `https://openapi.programming-hero.com/api/phone/${itemId}`;
   fetch(url)
     .then((res) => res.json())
-    .then((data) => displayItemsDetails(data.data));
+    .then((data) => displaysSystemDetails(data.data));
 };
 
-const displayItemsDetails = (item) => {
+const displaysSystemDetails = (item) => {
   console.log(item);
   const itemDetails = document.getElementById("item-details");
   itemDetails.textContent = "";
@@ -83,7 +83,7 @@ const displayItemsDetails = (item) => {
       
       <p> </p>
       <a target="_blank" href="details video
-      }" class="btn btn-primary shadow-none">Explore</a>
+      }" class="btn btn-danger shadow-none rounded">Explore</a>
       </div>
   </div>
   </div>
