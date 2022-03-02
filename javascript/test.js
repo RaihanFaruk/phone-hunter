@@ -63,22 +63,22 @@ const displayItemsDetails = (item) => {
   </div>
   <div class="col-md-7">
       <div class="card-body">
-      <h1 class="card-title">Main Features</h1>
+      <h1 class="card-title">Information</h1>
       <h6><span class="fw-bold">Name:</span> ${item.name}</h6>
       <h6><span class="fw-bold">Model:</span> ${item.slug}</h6>
       <h6><span class="fw-bold">Released:</span> ${item.releaseDate? item.releaseDate:`<h6>No Release Date No Found </h6> `}</h6>
-      <h5 class="fw-bold"> Main Features</h5>
+      <h5 class="fw-bold"> Main Features :</h5>
       <h6><span class="fw-bold">Chipset:</span> ${item.mainFeatures.chipSet}</h6>
       <h6><span class="fw-bold">Display Size:</span> ${item.mainFeatures.displaySize}</h6>
       <h6><span class="fw-bold">Memory:</span> ${item.mainFeatures.memory}</h6>
       <h6><span class="fw-bold">Sensors:</span> ${item.mainFeatures.sensors}</h6>
-      <h4 class="fw-bold"> Others</h4>
-      <h6><span class="fw-bold">Bluetooth:</span> ${item.others.Bluetooth}</h6>
-      <h6><span class="fw-bold">GPS:</span> ${item.others.GPS}</h6>
-      <h6><span class="fw-bold">NFC:</span> ${item.others.NFC}</h6>
-      <h6><span class="fw-bold">Radio:</span> ${item.others.Radio}</h6>
-      <h6><span class="fw-bold">USB:</span> ${item.others.USB}</h6>
-      <h6><span class="fw-bold">WLAN:</span> ${item.others.WLAN}</h6>
+      <h4 class="fw-bold"> Others:</h4>
+      <h6><span class="fw-bold">Bluetooth:</span> ${item.others?.Bluetooth}</h6>
+      <h6><span class="fw-bold">GPS:</span> ${item.others?.GPS}</h6>
+      <h6><span class="fw-bold">NFC:</span> ${item.others?.NFC}</h6>
+      <h6><span class="fw-bold">Radio:</span> ${item.others?.Radio}</h6>
+      <h6><span class="fw-bold">USB:</span> ${item.others?.USB}</h6>
+      <h6><span class="fw-bold">WLAN:</span> ${item.others?.WLAN}</h6>
       
       
       <p> </p>
